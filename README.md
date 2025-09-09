@@ -18,13 +18,13 @@ Developers have full control over UI, styling, and state management.
 ## 📦 Installation
 
 ```bash
-npm install tectonic-camera
+npm install tectonic_camera
 ```
 ## 🚀 Usage
 
 ```tsx
 import { useState } from "react"
-import { useTectonicCamera } from "tectonic-camera"
+import { useTectonicCamera } from "tectonic_camera"
 
 function App() {
   const [photo, setPhoto] = useState<File | null>(null)
