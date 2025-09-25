@@ -5,22 +5,22 @@ Developers have full control over UI, styling, and state management.
 
 ---
 
-## ✨ Features
+## Features
 
-- 📸 Opens the **native camera app** (front or back)
-- 🎨 No fixed UI → you control buttons and styling
-- 💾 Get the image as a `File` for storing in state, uploading, etc.
-- 📱 Works on mobile browsers (desktop falls back to file picker)
-- ⚡ Zero dependencies, lightweight
+- Opens the **native camera app** (front or back)
+- No fixed UI → you control buttons and styling
+- Get the image as a `File` for storing in state, uploading, etc.
+- Works on mobile browsers (desktop falls back to file picker)
+- Zero dependencies, lightweight
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install tectonic_camera
 ```
-## 🚀 Usage
+## Usage
 
 ```tsx
 import { useState } from "react"
@@ -57,7 +57,7 @@ function App() {
 }
 ```
 
-## ⚙️ API
+## API
 `useTectonicCamera(options)`
 ### Options
 - `captureMode?: "user" | "environment"`

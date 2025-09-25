@@ -3,15 +3,16 @@ import { useRef } from "react"
 type CaptureMode = "user" | "environment" | undefined
 
 type Props = {
-    onCapture: (file: File) => void
+    onCapture: (file: File, fieldId?: string) => void
     captureMode?: CaptureMode
 }
 
 export function useTectonicCamera({ onCapture, captureMode = "environment"}: Props) {
     const inputRef = useRef<HTMLInputElement | null>(null)
 
-    const openCamera = () => {
+    const openCamera = (fieldId?: string) => {
         inputRef.current?.click()
+        inputRef.current?.setAttribute('data-field-id', fieldId || '')
     }
 
     const CameraInput = () => (
@@ -23,8 +24,9 @@ export function useTectonicCamera({ onCapture, captureMode = "environment"}: Pro
             style={{ display: "none" }}
             onChange={e => {
                 const file = e.target.files?.[0]
+                const fieldId = e.target.getAttribute('data-field-id')
                 if (file) {
-                    onCapture(file)
+                    onCapture(file, fieldId || undefined)
                 }
             }}
         />
