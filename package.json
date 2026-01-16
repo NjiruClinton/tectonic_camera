@@ -1,6 +1,6 @@
 {
   "name": "tectonic_camera",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A lightweight React hook for capturing high-quality images using the native camera app on mobile browsers.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
