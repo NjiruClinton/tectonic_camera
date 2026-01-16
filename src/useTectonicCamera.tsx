@@ -4,10 +4,11 @@ type CaptureMode = "user" | "environment" | undefined
 
 type Props = {
     onCapture: (file: File, fieldId?: string) => void
+    onError?: (error: string, fieldId?: string) => void
     captureMode?: CaptureMode
 }
 
-export function useTectonicCamera({ onCapture, captureMode = "environment"}: Props) {
+export function useTectonicCamera({ onCapture, onError, captureMode = "environment"}: Props) {
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const openCamera = (fieldId?: string) => {
@@ -25,9 +26,18 @@ export function useTectonicCamera({ onCapture, captureMode = "environment"}: Pro
             onChange={e => {
                 const file = e.target.files?.[0]
                 const fieldId = e.target.getAttribute('data-field-id')
-                if (file) {
-                    onCapture(file, fieldId || undefined)
+
+                if (!file) {
+                    onError?.("No file selected", fieldId || undefined)
+                    return
                 }
+
+                if (!fieldId) {
+                    onError?.("Field ID is missing", fieldId || undefined)
+                    return
+                }
+
+                onCapture(file, fieldId)
             }}
         />
     )
