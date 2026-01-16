@@ -27,6 +27,8 @@ export function useTectonicCamera({ onCapture, onError, captureMode = "environme
                 const file = e.target.files?.[0]
                 const fieldId = e.target.getAttribute('data-field-id')
 
+                e.target.value = ''
+
                 if (!file) {
                     onError?.("No file selected", fieldId || undefined)
                     return
